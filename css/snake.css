@@ -33,3 +33,13 @@
 .food {
   background-color: red;
 }
+
+.info{
+  position: relative;
+  margin: 30px auto;
+  text-align: justify;
+  font-size: 20px;
+  color: black;
+  background-color: #efe;
+  width: 800px
+}
