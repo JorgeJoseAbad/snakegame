@@ -15,6 +15,7 @@ function Game(options) {
       );
     }
   }
+  console.log(this);
   console.log(this.snake);
   this.drawSnake();
   this.generateFood();
@@ -46,11 +47,23 @@ Game.prototype.drawSnake = function() {
   });
 };
 
-
-
-//actualiza la posicoin de la serpinte
+//controla toda la dinamica de movimiento: mueve adelante, comprueba si ha comido o
+//se ha comido, y redibuja la serpiente
 Game.prototype.update = function(){
   this.snake.moveForward(this.rows, this.columns);
+
+  if (this.snake.hasEatenFood(this.food)){
+    this.snake.grow();
+    this.clearFood();
+    this.generateFood();
+    this.drawFood();
+  }
+
+  if (this.snake.hasEatenItself()){
+    alert('Game Over');
+    this.stop();
+  }
+
   this.clearSnake();
   this.drawSnake();
 };
@@ -99,26 +112,6 @@ Game.prototype.clearFood = function(){
   this.food = undefined;
 };
 
-//controla toda la dinamica de movimiento: mueve adelante, comprueba si ha comido o
-//se ha comido, y redibuja la serpiente
-Game.prototype.update = function(){
-  this.snake.moveForward(this.rows, this.columns);
-
-  if (this.snake.hasEatenFood(this.food)){
-    this.snake.grow();
-    this.clearFood();
-    this.generateFood();
-    this.drawFood();
-  }
-
-  if (this.snake.hasEatenItself()){
-    alert('Game Over');
-    this.stop();
-  }
-
-  this.clearSnake();
-  this.drawSnake();
-};
 
 //una vez generada la comida, la pinta cambiando la clase de la posicion donde ha caido
 Game.prototype.drawFood = function(){

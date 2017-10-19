@@ -71,7 +71,7 @@ Snake.prototype.moveForward = function(maxRows, maxColumns) {
   //para retirar del final de la serpiente
   //this.body.pop();
   this.previousTail = this.body.pop(); //almacenamos la cola para luego volver
-  //a añadirla
+  //a añadirla (si la serpiente crece)
 };
 
 //si la cabeza de la serpiente coincide con la comida retorna true
