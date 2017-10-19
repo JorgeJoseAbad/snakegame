@@ -1,0 +1,35 @@
+.title{
+  position: relative;
+  margin: 30px auto;
+  text-align: center;
+  font-size: 26px;
+  color: black;
+  background-color: #eee;
+  width: 800px
+}
+
+.container {
+  height: 800px;
+  margin: 30px auto;
+  width: 800px;
+}
+
+.cell {
+  background-size: contain;
+  box-sizing: border-box;
+  float: left;
+  height: 16px;
+  width: 16px;
+}
+
+.board {
+  background-color: #E3D4AB;
+}
+
+.snake {
+  background-color: #95BE69;
+}
+
+.food {
+  background-color: red;
+}
