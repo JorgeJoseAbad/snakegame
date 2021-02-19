@@ -5,6 +5,7 @@ function Game(options) {
   this.columns = options.columns;
   this.snake   = options.snake;
   this.food    = undefined;
+  this.points  = 0;
 
   for (var rowIndex = 0; rowIndex < options.rows; rowIndex++){
     for (var columnIndex = 0; columnIndex < options.columns; columnIndex++){
@@ -61,6 +62,7 @@ Game.prototype.update = function(){
 
   if (this.snake.hasEatenItself()){
     alert('Game Over');
+    this.readPoints();
     this.stop();
   }
 
@@ -128,6 +130,14 @@ Game.prototype.generateFood = function() {
     };
   } while (this.snake.collidesWith(this.food));
 };
+
+Game.prototype.readPoints = function(){
+  debugger;
+  this.points=this.snake.body.length;
+  $('#result').html("<h2> Puntos: "+
+          this.points+"</h2>");
+
+}
 
 //variable que crea el juego, con las opciones que pasa al constructor
 var game = new Game({
