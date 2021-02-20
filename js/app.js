@@ -16,8 +16,6 @@ function Game(options) {
       );
     }
   }
-  console.log(this);
-  console.log(this.snake);
   this.drawSnake();
   this.generateFood();
   this.drawFood();
@@ -42,8 +40,8 @@ Game.prototype.clearSnake = function() {
 //clase serpiente lo que visualmente hace cambiar su color...
 Game.prototype.drawSnake = function() {
   this.snake.body.forEach( function(position, index) {
-    var selector = '[data-row=' + position.row + '][data-col=' + position.column + ']';// recordar la
-    //sintaxis de selectores CSS
+    // recordar la sintaxis de selectores CSS
+    var selector = '[data-row=' + position.row + '][data-col=' + position.column + ']';
     $(selector).addClass('snake');
   });
 };
@@ -70,7 +68,7 @@ Game.prototype.update = function(){
   this.drawSnake();
 };
 
-//asigna controles a las teclas
+//asigna controles a las teclas con bind a this (el juego)
 Game.prototype.assignControlsToKeys = function(){
   $('body').on('keydown', function(e) {
     switch (e.keyCode) {
@@ -88,16 +86,15 @@ Game.prototype.assignControlsToKeys = function(){
         break;
       case 80: // p letter
       //this.intervalID es el tiempo entre intervalos de 100 que ha retornado this.setInterval
-        if (this.intervalId) {
-          this.stop();
-        } else {
-          this.start();
-        }
+          if (this.intervalId) {
+            this.stop();
+          } else {
+            this.start();
+          }
         break;
     }
   }.bind(this));
 };
-
 
 
 Game.prototype.stop = function(){
@@ -132,14 +129,13 @@ Game.prototype.generateFood = function() {
 };
 
 Game.prototype.readPoints = function(){
-  debugger;
   this.points=this.snake.body.length;
   $('#result').html("<h2> Puntos: "+
           this.points+"</h2>");
-
 }
 
-//variable que crea el juego, con las opciones que pasa al constructor
+/* Variable que crea el juego, con las opciones que pasa al constructor,
+ que incluyen la snake definida en otro fichero */
 var game = new Game({
   rows: 50,
   columns: 50,

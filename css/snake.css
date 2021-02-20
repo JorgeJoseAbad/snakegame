@@ -1,6 +1,12 @@
+
+body{
+  background: url(../img/background.jpg);
+  background-size: cover;
+}
+
 .title{
   position: relative;
-  margin: 30px auto;
+  margin: 5px auto;
   text-align: center;
   font-size: 26px;
   color: black;
@@ -10,8 +16,9 @@
 
 .container {
   height: 800px;
-  margin: 30px auto;
+  margin: 10px auto;
   width: 800px;
+  border: 1px solid darkgreen;
 }
 
 .cell {
@@ -36,7 +43,7 @@
 
 .info{
   position: relative;
-  margin: 30px auto;
+  margin: 5px auto;
   text-align: justify;
   font-size: 20px;
   color: black;
@@ -44,10 +51,14 @@
   width: 800px
 }
 
+#info{
+  padding:5px;
+}
+
 #result{
   position: absolute;
-  top: -450px;
-  right: 340px;
+  top: 100px;
+  left: 300px;
   width: auto;
   background-color: tomato;
   border-radius: 10px;

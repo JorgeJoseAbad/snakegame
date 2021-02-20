@@ -1,3 +1,15 @@
+/*
+ Snake tiene una dirección, y un cuerpo que es un array de objetos que guardan
+ fila y columa.
+ Snake puede ir hacia arriba, abajo izqquierda o derecha.
+ Snake avanza, en función de la dirección. Añadiendo un elemento en la posición
+ cero del array y retirando la ultima posición.
+ Snake crece añadiendo una ultima posición al array.
+ Snake comprueba si ha comido. Lo que lleva a crecer.
+ Snake comprueba si ha chocado consigo misma. lo que acabará el juego.
+ Snake comprueba si la comida le ha caido encima (no valido).
+*/
+
 //constructor con posición y tamaño inicial y direccion inicial
 function Snake(options){
   this.direction='right';
@@ -38,7 +50,7 @@ Snake.prototype.goDown = function() {
 
 //funcion para mover la serpiente dependiendo de la direccion actual
 //se añade al principio de la serpiente, segun la direccion que tiene,
-//y se retira del final
+//y se retira del final.
 Snake.prototype.moveForward = function(maxRows, maxColumns) {
   var head = this.body[0];
 
